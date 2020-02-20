@@ -1,0 +1,65 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.text-box {
+  font-size: 60px;
+  font-family: "Fredoka One";
+  letter-spacing: 7px;
+  word-spacing: 12px;
+  text-transform: uppercase;
+  color: rgb(238, 238, 238);
+}
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-direction: row;
+}
+.button {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  word-spacing: normal;
+  letter-spacing: 0.2rem;
+  border: 1px solid white;
+  background: black;
+  cursor: pointer;
+  border-radius: 8%;
+  text-decoration: none !important;
+  color: aliceblue;
+}
+.heading {
+  text-align: center;
+}
+
+.detail {
+  font-size: 20px;
+}
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.button:hover {
+  background: wheat;
+  color: black;
+}
