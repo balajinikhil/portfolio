@@ -24,7 +24,9 @@ app.get("/about", viewsController.aboutMe);
 app.get("/projects", viewsController.projects);
 app.get("/resume", viewsController.resume);
 app.get("/contact", viewsController.contactMe);
+app.get("/project/:slug", viewsController.projectDetail);
 
+//API
 app.use("/api/v1/projects", projectRouter);
 
 app.all("*", (req, res, next) => {

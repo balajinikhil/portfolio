@@ -14,7 +14,7 @@ block content
                         <div class="owl-carousel owl-theme">
                             <div class="item">
                                 <div class="project-info">
-                                    <img src="/temp/images/project/project-image01.png" class="img-fluid" alt="project image">
+                                    <img src="/temp/images/project/project-image01.jpg" class="img-fluid" alt="project image">
                                 </div>
                             </div>
 
@@ -47,13 +47,18 @@ block content
                 </div>
             </div>
         </section>
-        <section class='project-card'>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        </section>
+
+        //- project cards
+        <section class='project-cards'>
+            each project in projects
+                <div class="card" style="width: 18rem;">
+                    <img src="/temp/images/project/project-image01.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        h5.card-title= project.name
+                        p.card-text= project.description
+                        a.btn.btn-primary(href=`/project/${project.slug}`) Details
+                    </div>
+                </div>
+            </section>
+           
+        
