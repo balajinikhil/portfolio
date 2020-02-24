@@ -31,8 +31,6 @@ exports.contactMe = catchAsync((req, res, next) => {
 exports.projectDetail = catchAsync(async (req, res, next) => {
   const project = await Projects.findOne({ slug: req.params.slug });
 
-  console.log(project.slug);
-
   res.status(200).render("projectDetail", {
     title: project.name,
     project: project
