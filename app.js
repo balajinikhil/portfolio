@@ -19,14 +19,12 @@ app.use(helmet());
 
 if (process.env.NODE_ENV === "production") app.use(express.json());
 app.use(morgan("dev"));
-app.use(compression());
+// app.use(compression());
 
 app.use(express.static(path.join(__dirname, "/public")));
 
 //UI
-app.get("/", (req, res) => {
-  res.status(200).viewsController.aboutMe;
-});
+app.get("/", viewsController.startUp);
 app.get("/about", viewsController.aboutMe);
 app.get("/projects", viewsController.projects);
 app.get("/resume", viewsController.resume);

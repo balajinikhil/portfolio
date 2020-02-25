@@ -1,9 +1,9 @@
 const catchAsync = require("./../utils/catchAsyn");
 const Projects = require("./../model/projectModel");
 
-exports.aboutMe = catchAsync((req, res, next) => {
-  res.status(200).render("about", {
-    title: "About Me"
+exports.startUp = catchAsync(async (req, res, next) => {
+  res.status(200).render("index", {
+    title: ""
   });
 });
 
@@ -34,5 +34,11 @@ exports.projectDetail = catchAsync(async (req, res, next) => {
   res.status(200).render("projectDetail", {
     title: project.name,
     project: project
+  });
+});
+
+exports.aboutMe = catchAsync((req, res, next) => {
+  res.status(200).render("about", {
+    title: "About Me"
   });
 });
