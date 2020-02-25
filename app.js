@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 //UI
 app.get("/", (req, res) => {
-  res.status(200).sendFile(`${__dirname}/public/start.html`);
+  res.status(200).viewsController.aboutMe;
 });
 app.get("/about", viewsController.aboutMe);
 app.get("/projects", viewsController.projects);
