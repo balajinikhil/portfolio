@@ -1,12 +1,6 @@
 const catchAsync = require("./../utils/catchAsyn");
 const Projects = require("./../model/projectModel");
 
-exports.startUp = catchAsync(async (req, res, next) => {
-  res.status(200).render("index", {
-    title: ""
-  });
-});
-
 exports.projects = catchAsync(async (req, res, next) => {
   const projects = await Projects.find();
 
