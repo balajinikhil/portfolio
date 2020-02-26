@@ -36,3 +36,9 @@ exports.aboutMe = catchAsync((req, res, next) => {
     title: "About Me"
   });
 });
+
+exports.login = catchAsync(async (req, res, next) => {
+  res.status(200).render("login", {
+    title: "Login"
+  });
+});
