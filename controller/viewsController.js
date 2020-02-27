@@ -10,13 +10,13 @@ exports.projects = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.resume = catchAsync((req, res, next) => {
+exports.resume = catchAsync(async (req, res, next) => {
   res.status(200).render("resume", {
     title: "My Resume"
   });
 });
 
-exports.contactMe = catchAsync((req, res, next) => {
+exports.contactMe = catchAsync(async (req, res, next) => {
   res.status(200).render("contact", {
     title: "Contact Me"
   });
@@ -31,7 +31,7 @@ exports.projectDetail = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.aboutMe = catchAsync((req, res, next) => {
+exports.aboutMe = catchAsync(async (req, res, next) => {
   res.status(200).render("about", {
     title: "About Me"
   });

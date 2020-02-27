@@ -1,7 +1,6 @@
 const nodemail = require("nodemailer");
 
 const sendMail = async options => {
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
   const transporter = nodemail.createTransport({
     service: "gmail",
     auth: {

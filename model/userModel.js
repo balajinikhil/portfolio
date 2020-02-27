@@ -19,6 +19,13 @@ const userSchema = new mongoose.Schema({
   passwordCreatedAt: {
     type: Date,
     default: Date.now()
+  },
+  token: {
+    type: String
+  },
+  tokenCreatedAt: {
+    type: Date,
+    default: Date.now()
   }
 });
 
