@@ -1,3 +1,4 @@
+const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const catchAsyn = require("./../utils/catchAsyn");
 const AppError = require("./../utils/appError");
@@ -52,6 +53,21 @@ exports.signUp = catchAsyn(async (req, res, next) => {
 });
 
 exports.protect = catchAsyn(async (req, res, next) => {
-  console.log(req.cookies);
+  const jwtReq = req.cookies.jwt;
+  if (!jwtReq) {
+    return next(new AppError("Please login again to continue"));
+  }
+
+  const jwtPromise = promisify(jwt.verify);
+  const decoded = await jwtPromise(jwtReq, process.env.JWT_SCERET);
+
+  const user = await User.findById(decoded.id);
+
+  if (!user) {
+    return next(new AppError("User no longer exists"));
+  }
+
+  req.user = user;
+  res.locals.user = user;
   next();
 });

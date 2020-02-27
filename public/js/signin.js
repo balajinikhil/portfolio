@@ -15,9 +15,10 @@ const login = document
       }
     })
       .then(dt => {
-        console.log("success", dt);
+        window.location.href = "/admin";
       })
       .catch(err => {
-        console.log("error", err);
+        alert("try again");
+        console.log(err);
       });
   });
