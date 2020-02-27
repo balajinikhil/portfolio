@@ -5,8 +5,9 @@ const projectRouter = require("./routes/projectRouter");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controller/errorController");
 const viewsController = require("./controller/viewsController");
-const userRouter = require("./model/userModel");
+const userRouter = require("./routes/userRouter");
 const contactRouter = require("./routes/contactRouter");
+const authController = require("./controller/authController");
 //security headers
 const helmet = require("helmet");
 

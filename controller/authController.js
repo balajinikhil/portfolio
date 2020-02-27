@@ -10,6 +10,7 @@ const createJWT = id => {
 };
 
 exports.signIn = catchAsyn(async (req, res, next) => {
+  console.log(req.body);
   if (!req.body.email || !req.body.password) {
     return next(new AppError("Please enter email and password", 400));
   }
@@ -18,7 +19,7 @@ exports.signIn = catchAsyn(async (req, res, next) => {
     "+password"
   );
 
-  if (!user || !password.checkPassword(user.password, req.body.password)) {
+  if (!user || !user.checkPassword(user.password, req.body.password)) {
     return next(new AppError("Please check your email or password"));
   }
 
@@ -40,10 +41,17 @@ exports.signIn = catchAsyn(async (req, res, next) => {
 });
 
 exports.signUp = catchAsyn(async (req, res, next) => {
+  console.log("signup", req.body);
   const newUser = await User.create(req.body);
+  console.log("hello", newUser);
 
   res.status(200).json({
     status: "success",
     newUser
   });
+});
+
+exports.protect = catchAsyn(async (req, res, next) => {
+  console.log(req.cookies);
+  next();
 });

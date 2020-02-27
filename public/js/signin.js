@@ -5,13 +5,12 @@ const login = document
   .querySelector(".login")
   .addEventListener("submit", async e => {
     e.preventDefault();
-    console.log("working");
 
     await axios({
       method: "post",
       url: "/api/v1/users/signin",
       data: {
-        email: email.nodeValue,
+        email: email.value,
         password: password.value
       }
     })
