@@ -1,7 +1,12 @@
 const Router = require("express").Router();
+const adminController = require("./../controller/adminController");
 
-Router.get("/", (req, res) => {
-  res.send("working");
-});
+Router.get("/", adminController.dashboard);
+
+Router.get("/projects", adminController.listProjects);
+
+Router.get("/contact", adminController.listContact);
+
+Router.get("/users", adminController.listUsers);
 
 module.exports = Router;

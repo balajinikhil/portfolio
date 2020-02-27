@@ -1,0 +1,12 @@
+extends dashboard
+block content
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    each user in users
+        <div class="card w-75">
+            <div class="card-body">
+                <h5 class="card-title">Name: #{user.name}</h5>
+                <p class="card-text">email:  #{user.email}</p>
+                //- <a href="#" class="btn btn-primary">Button</a>
+            </div>
+        </div>
+    </main>

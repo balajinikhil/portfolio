@@ -15,13 +15,15 @@ const globalErrorHandler = require("./controller/errorController");
 //controller
 const viewsController = require("./controller/viewsController");
 const authController = require("./controller/authController");
-const adminController = require("./controller/adminController");
 //security headers
 const helmet = require("helmet");
 
 const app = express();
 app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", [
+  path.join(__dirname, "/views"),
+  path.join(__dirname, "/views/admin")
+]);
 
 //GLOBAL MIDDELWARE
 // app.use(helmet());
@@ -41,7 +43,7 @@ app.get("/contact", viewsController.contactMe);
 app.get("/project/:slug", viewsController.projectDetail);
 app.get("/login", viewsController.login);
 //ADMIN UI
-app.get("/admin", authController.protect, adminController.dashboard);
+app.use("/admin", authController.protect, adminRouter);
 
 //API
 app.use("/api/v1/projects", projectRouter);
