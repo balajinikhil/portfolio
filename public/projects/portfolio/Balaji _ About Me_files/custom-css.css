@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+.project-cards {
+  padding: 30px;
+  /* display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start; */
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+}
+
+.project-box {
+  border: 1px dotted black;
+  background: #dddddd;
+}
+
+.footer-change {
+  margin-top: auto;
+}
+
+.my-stack {
+  margin-top: 15%;
+}
+
+.inner-stack {
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.fa-html5 {
+  color: #f16529;
+}
+
+.fa-css3-alt {
+  color: #2965f1;
+}
+
+.fa-react {
+  color: #61dbfb;
+}
+
+.fa-node {
+  color: #3c873a;
+}
+
+.fa-database {
+  color: #4db33d;
+}
+
+.fa-bootstrap {
+  color: #602c50;
+}
+
+.fa-sass {
+  color: #cd6799;
+}

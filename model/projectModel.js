@@ -8,7 +8,6 @@ const projectSchema = new mongoose.Schema({
   },
   slug: {
     type: String,
-    required: true,
     unique: true
   },
   tags: [
@@ -43,6 +42,9 @@ const projectSchema = new mongoose.Schema({
     type: String,
     default: "active",
     enum: ["active", "inactive"]
+  },
+  image: {
+    type: String
   }
 });
 
@@ -50,7 +52,17 @@ projectSchema.pre("save", function(next) {
   this.slug = slugify(this.name, {
     lower: true
   });
+  this.image = slugify(this.name, {
+    lower: true
+  });
 
+  next();
+});
+
+projectSchema.pre("save", function(next) {
+  this.slug = slugify(this.name, {
+    lower: true
+  });
   next();
 });
 

@@ -2,7 +2,7 @@ const catchAsync = require("./../utils/catchAsyn");
 const Projects = require("./../model/projectModel");
 
 exports.projects = catchAsync(async (req, res, next) => {
-  const projects = await Projects.find();
+  const projects = await Projects.find().sort("-createdOn");
 
   res.status(200).render("projects", {
     title: "My Projects",

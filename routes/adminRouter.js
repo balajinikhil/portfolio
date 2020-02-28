@@ -9,4 +9,8 @@ Router.get("/contact", adminController.listContact);
 
 Router.get("/users", adminController.listUsers);
 
+Router.route("/projects/add-new-project")
+  .get(adminController.addNewProject)
+  .post(adminController.createNew);
+
 module.exports = Router;

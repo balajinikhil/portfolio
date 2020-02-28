@@ -1,5 +1,6 @@
 extends base
 block content
+    link(rel="stylesheet", href="/projectDetail.css")
     .project-detail
         <div class="album py-2 bg-light">
             <div class="container">
@@ -9,28 +10,10 @@ block content
                         <div class="mb-4 ">
                             <h1>Links</h1>
                             <div class="my-2">
-                                <a href="https://github.com/balajinikhil/JS-John" class="btn btn-primary">Github Link</a>
+                                a(href=project.githubUrl class="btn btn-primary") Github Link
                             </div>
                         </div>
                         <hr />
-                        <div>
-                            <h1>Tags</h1>
-                            //- {{#each project.tags}}
-                            a(href="#" class="badge badge-{{this.class}}")=project.name
-                            //- {{/each}}
-                        </div>
-                        <hr />
-                        
-                        <div>
-                            
-                            //- {{#each project.relatedProjects}}
-                            <div>
-                                <a href="/projects">Related Projects</a>
-                            </div>
-                            //- {{/each}}
-                        </div>
-                        <hr />
-                       
                         <div>
                             <h1>Resources</h1>
                         each el in project.relatedProjects
@@ -52,7 +35,7 @@ block content
                         p=project.description
 
 
-                        h2 Give it a try..
+                        h2 Live Demo... Give it a try...
                         
                         iframe.project-box(src=`/projects/${project.slug}/index.html` width = "100%" height="70%" frameborder=0)
 

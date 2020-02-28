@@ -8,14 +8,18 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start; */
+  /* display: grid;
+  grid-template-columns: auto auto auto; */
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-column-gap: 30px;
+  grid-row-gap: 6px;
 }
 
 .project-box {
   border: 1px dotted black;
   background: #dddddd;
+  height: 100vh;
 }
 
 .footer-change {
@@ -57,4 +61,9 @@
 
 .fa-sass {
   color: #cd6799;
+}
+
+.p-cards {
+  margin: auto;
+  margin-top: 10%;
 }

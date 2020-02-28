@@ -8,24 +8,22 @@ block content
                     <div class="col-lg-11 text-center mx-auto col-12">
 
                         <div class="col-lg-8 mx-auto">
-                            <h2>PAGE UNDER CONSTRUCTION.....  TILL THEN A PREVIEW </h2>
+                            <h2>Things I have built so far... </h2>
                         </div>
 
-                        <div class="owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="project-info">
-                                    <img src="/temp/images/project/project-image01.jpg" class="img-fluid" alt="project image">
-                                </div>
-                            </div>
+                        //- <div class="owl-carousel owl-theme">
+                        //-     <div class="item">
+                        //-         <div class="project-info">
+                        //-             <img src="/temp/images/project/project-image01.jpg" class="img-fluid" alt="project image">
+                        //-         </div>
+                        //-     </div>
 
-                            <div class="item">
-                                <div class="project-info">
-                                    <img src="/temp/images/project/project-image02.jpg" class="img-fluid" alt="project image">
-                                </div>
-                            </div>
-
-                          
-                        </div>
+                        //-     <div class="item">
+                        //-         <div class="project-info">
+                        //-             <img src="/temp/images/project/project-image02.jpg" class="img-fluid" alt="project image">
+                        //-         </div>
+                        //-     </div>
+                        //- </div>
 
                     </div>
                 </div>
@@ -35,8 +33,8 @@ block content
         //- project cards
         <section class='project-cards'>
             each project in projects
-                <div class="card" style="width: 18rem;">
-                    <img src="/temp/images/project/project-image01.jpg" class="card-img-top" alt="...">
+                <div class="card p-cards" style="width: 18rem;">
+                    img(src=`/temp/images/project/${project.slug}.jpg` class="card-img-top" alt="...")
                     <div class="card-body">
                         h5.card-title= project.name
                         p.card-text= project.description

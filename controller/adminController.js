@@ -35,3 +35,23 @@ exports.listUsers = catchAsync(async (req, res, nextt) => {
     users
   });
 });
+
+exports.addNewProject = catchAsync(async (req, res, next) => {
+  res.status(200).render("newProject", {
+    title: "create project"
+  });
+});
+
+exports.createNew = catchAsync(async (req, res, next) => {
+  const bodyData = req.body;
+  let classes = ["danger", "primary", "success", "info", "warning"];
+  bodyData.tags = bodyData.tags.split(",").map((ele, i) => {
+    return {
+      name: ele,
+      class: classes[i]
+    };
+  });
+  const project = await Project.create(bodyData);
+
+  res.status(200).redirect("/admin/projects");
+});
