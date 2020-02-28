@@ -42,6 +42,11 @@ app.get("/resume", viewsController.resume);
 app.get("/contact", viewsController.contactMe);
 app.get("/project/:slug", viewsController.projectDetail);
 app.get("/login", viewsController.login);
+app.get("/error", (req, res) => {
+  res.render("error", {
+    title: "Ooops"
+  });
+});
 //ADMIN UI
 app.use("/admin", authController.protect, adminRouter);
 
