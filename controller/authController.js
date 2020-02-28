@@ -20,7 +20,7 @@ exports.signIn = catchAsyn(async (req, res, next) => {
     "+password"
   );
 
-  if (!user || !user.checkPassword(user.password, req.body.password)) {
+  if (!user || !(await user.checkPassword(user.password, req.body.password))) {
     return next(new AppError("Please check your email or password"));
   }
 
