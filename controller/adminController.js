@@ -10,7 +10,7 @@ exports.dashboard = catchAsync(async (req, res, next) => {
 });
 
 exports.listProjects = catchAsync(async (req, res, next) => {
-  const projects = await Project.find();
+  const projects = await Project.find().sort("-createdOn");
 
   res.status(200).render("dashboardProject", {
     title: "project list",
@@ -52,6 +52,29 @@ exports.createNew = catchAsync(async (req, res, next) => {
     };
   });
   const project = await Project.create(bodyData);
+
+  res.status(200).redirect("/admin/projects");
+});
+
+exports.editProjects = catchAsync(async (req, res, next) => {
+  const project = await Project.findOne({ slug: req.params.slug });
+
+  res.status(200).render("updateProject", {
+    title: "edit project",
+    project
+  });
+});
+
+exports.updateProject = catchAsync(async (req, res, next) => {
+  const project = await Project.updateOne({ slug: req.params.slug }, req.body);
+
+  console.log(project);
+
+  res.redirect("/admin/projects");
+});
+
+exports.deleteProject = catchAsync(async (req, res, next) => {
+  await Project.deleteOne({ slug: req.params.slug });
 
   res.status(200).redirect("/admin/projects");
 });
