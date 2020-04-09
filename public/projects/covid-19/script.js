@@ -34,11 +34,17 @@ const updateData = (ind, wrld, dateUp) => {
 };
 
 const getData = async () => {
-  const dt = await fetch("https://api.covid19api.com/summary");
-  const data = await dt.json();
-  console.log(data);
-  const countries = await data.Countries;
-  updateData(countries[101], data.Global, data.Date);
+  try {
+    const dt = await fetch("https://api.covid19api.com/summary");
+    console.log(dt);
+    const data = await dt.json();
+    console.log(data);
+    const countries = await data.Countries;
+    updateData(countries[101], data.Global, data.Date);
+  } catch (err) {
+    date.innerHTML = `Server Busy Try After Some Time`;
+    alert("Server busy try again");
+  }
 };
 
 btn.addEventListener("click", () => {
