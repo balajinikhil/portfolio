@@ -36,6 +36,7 @@ const updateData = (ind, wrld, dateUp) => {
 const getData = async () => {
   const dt = await fetch("https://api.covid19api.com/summary");
   const data = await dt.json();
+  console.log(data);
   const countries = await data.Countries;
   updateData(countries[101], data.Global, data.Date);
 };
