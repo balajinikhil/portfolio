@@ -16,21 +16,25 @@ const totalDeaths = document.querySelector(".totalDeaths");
 const newRecovered = document.querySelector(".newRecovered");
 const totalRecovered = document.querySelector(".totalRecovered");
 
+function nC(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 const updateData = (ind, wrld, dateUp) => {
   date.innerHTML = `${new Date(dateUp).toUTCString()}`;
-  newConfirmedInd.innerHTML = `${ind.NewConfirmed}+`;
-  totalConfirmedInd.innerHTML = `${ind.TotalConfirmed}`;
-  newDeathsInd.innerHTML = `${ind.NewDeaths}+`;
-  totalDeathsInd.innerHTML = `${ind.TotalDeaths}`;
-  newRecoveredInd.innerHTML = `${ind.NewRecovered}+`;
-  totalRecoveredInd.innerHTML = `${ind.TotalRecovered}`;
+  newConfirmedInd.innerHTML = `${nC(ind.NewConfirmed)}+`;
+  totalConfirmedInd.innerHTML = `${nC(ind.TotalConfirmed)}`;
+  newDeathsInd.innerHTML = `${nC(ind.NewDeaths)}+`;
+  totalDeathsInd.innerHTML = `${nC(ind.TotalDeaths)}`;
+  newRecoveredInd.innerHTML = `${nC(ind.NewRecovered)}+`;
+  totalRecoveredInd.innerHTML = `${nC(ind.TotalRecovered)}`;
 
-  newConfirmed.innerHTML = `${wrld.NewConfirmed}+`;
-  totalConfirmed.innerHTML = `${wrld.TotalConfirmed}`;
-  newDeaths.innerHTML = `${wrld.NewDeaths}+`;
-  totalDeaths.innerHTML = `${wrld.TotalDeaths}`;
-  newRecovered.innerHTML = `${wrld.NewRecovered}+`;
-  totalRecovered.innerHTML = `${wrld.TotalRecovered}`;
+  newConfirmed.innerHTML = `${nC(wrld.NewConfirmed)}+`;
+  totalConfirmed.innerHTML = `${nC(wrld.TotalConfirmed)}`;
+  newDeaths.innerHTML = `${nC(wrld.NewDeaths)}+`;
+  totalDeaths.innerHTML = `${nC(wrld.TotalDeaths)}`;
+  newRecovered.innerHTML = `${nC(wrld.NewRecovered)}+`;
+  totalRecovered.innerHTML = `${nC(wrld.TotalRecovered)}`;
 };
 
 const getData = async () => {
