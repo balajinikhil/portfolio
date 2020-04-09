@@ -22,11 +22,11 @@ const app = express();
 app.set("view engine", "pug");
 app.set("views", [
   path.join(__dirname, "/views"),
-  path.join(__dirname, "/views/admin")
+  path.join(__dirname, "/views/admin"),
 ]);
 
 //GLOBAL MIDDELWARE
-// app.use(helmet());
+// app.use(helmet()); https://balaji-pofo.herokuapp.com/
 
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
@@ -44,7 +44,7 @@ app.get("/project/:slug", viewsController.projectDetail);
 app.get("/login", viewsController.login);
 app.get("/error", (req, res) => {
   res.render("error", {
-    title: "Ooops"
+    title: "Ooops",
   });
 });
 //ADMIN UI
