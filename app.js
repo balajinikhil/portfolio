@@ -28,7 +28,7 @@ app.set("views", [
 //GLOBAL MIDDELWARE
 // app.use(helmet()); https://balaji-pofo.herokuapp.com/
 
-if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
+// if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
