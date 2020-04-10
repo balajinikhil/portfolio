@@ -103,3 +103,18 @@ h5 {
   padding: 5px;
   background-color: lightslategray;
 }
+
+.search {
+  padding: 15px;
+  background: pink;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.ipt {
+  padding: 2px;
+}
+
+.btn-1 {
+  padding: 2px;
+}

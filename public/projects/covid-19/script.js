@@ -1,12 +1,9 @@
 const date = document.querySelector(".lastUpdate");
 const btn = document.querySelector(".btn");
+const searchBtn = document.querySelector(".btn-1");
+const ipt = document.querySelector(".ipt");
+const chg = document.querySelector(".chg");
 // India data
-const newConfirmedInd = document.querySelector(".newConfirmedInd");
-const totalConfirmedInd = document.querySelector(".totalConfirmedInd");
-const newDeathsInd = document.querySelector(".newDeathsInd");
-const totalDeathsInd = document.querySelector(".totalDeathsInd");
-const newRecoveredInd = document.querySelector(".newRecoveredInd");
-const totalRecoveredInd = document.querySelector(".totalRecoveredInd");
 
 // World data
 const newConfirmed = document.querySelector(".newConfirmed");
@@ -16,18 +13,15 @@ const totalDeaths = document.querySelector(".totalDeaths");
 const newRecovered = document.querySelector(".newRecovered");
 const totalRecovered = document.querySelector(".totalRecovered");
 
+// All Countries
+const allCountries = document.querySelector(".all-cont");
+
 function nC(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-const updateData = (ind, wrld, dateUp) => {
+const updateData = (ind, wrld, dateUp, allCon) => {
   date.innerHTML = `${new Date(dateUp).toUTCString()}`;
-  newConfirmedInd.innerHTML = `${nC(ind.NewConfirmed)}+`;
-  totalConfirmedInd.innerHTML = `${nC(ind.TotalConfirmed)}`;
-  newDeathsInd.innerHTML = `${nC(ind.NewDeaths)}+`;
-  totalDeathsInd.innerHTML = `${nC(ind.TotalDeaths)}`;
-  newRecoveredInd.innerHTML = `${nC(ind.NewRecovered)}+`;
-  totalRecoveredInd.innerHTML = `${nC(ind.TotalRecovered)}`;
 
   newConfirmed.innerHTML = `${nC(wrld.NewConfirmed)}+`;
   totalConfirmed.innerHTML = `${nC(wrld.TotalConfirmed)}`;
@@ -35,14 +29,82 @@ const updateData = (ind, wrld, dateUp) => {
   totalDeaths.innerHTML = `${nC(wrld.TotalDeaths)}`;
   newRecovered.innerHTML = `${nC(wrld.NewRecovered)}+`;
   totalRecovered.innerHTML = `${nC(wrld.TotalRecovered)}`;
+
+  allCon.forEach((e, i) => {
+    allCountries.innerHTML += ` <h3>${i + 1}.${e.Country}</h3>
+      <div class="head-data">
+        <p>New Confirmed <span class="newConfirmed">${nC(
+          e.NewConfirmed
+        )}</span></p>
+        <p>Total Confirmed <span class="totalConfirmed">${nC(
+          e.TotalConfirmed
+        )}</span></p>
+        <p>New Deaths <span class="newDeaths">${nC(e.NewDeaths)}</span></p>
+        <p>Total Deaths <span class="totalDeaths">${nC(
+          e.TotalDeaths
+        )}</span></p>
+        <p>New Recovered <span class="newRecovered">${nC(
+          e.NewRecovered
+        )}</span></p>
+        <p>Total Recovered <span class="totalRecovered">${nC(
+          e.TotalRecovered
+        )}</span></p>
+      </div>`;
+  });
+
+  searchBtn.addEventListener("click", () => {
+    chg.innerHTML = `Search Result`;
+    const val = ipt.value.trim().toLowerCase();
+
+    let found = false;
+
+    for (let i = 0; i < allCon.length; i++) {
+      if (val == allCon[i].Country.trim().toLowerCase()) {
+        found = true;
+        let e = allCon[i];
+        allCountries.innerHTML = ` <h3>${e.Country}</h3>
+      <div class="head-data">
+        <p>New Confirmed <span class="newConfirmed">${nC(
+          e.NewConfirmed
+        )}</span></p>
+        <p>Total Confirmed <span class="totalConfirmed">${nC(
+          e.TotalConfirmed
+        )}</span></p>
+        <p>New Deaths <span class="newDeaths">${nC(e.NewDeaths)}</span></p>
+        <p>Total Deaths <span class="totalDeaths">${nC(
+          e.TotalDeaths
+        )}</span></p>
+        <p>New Recovered <span class="newRecovered">${nC(
+          e.NewRecovered
+        )}</span></p>
+        <p>Total Recovered <span class="totalRecovered">${nC(
+          e.TotalRecovered
+        )}</span></p>
+      </div>`;
+      }
+    }
+
+    if (!found) {
+      allCountries.innerHTML = `No results found`;
+    }
+
+    ipt.value = "";
+  });
 };
 
 const getData = async () => {
   try {
     const dt = await fetch("https://api.covid19api.com/summary");
     const data = await dt.json();
+    // console.log(data);
+
+    // const c = await fetch(
+    //   "https://api.covid19api.com/live/country/india/status/confirmed"
+    // );
+    // const cd = await c.json();
+
     const countries = await data.Countries;
-    updateData(countries[101], data.Global, data.Date);
+    updateData(countries[99], data.Global, data.Date, data.Countries);
   } catch (err) {
     date.innerHTML = `Server Busy Try After Some Time`;
     alert("Server busy try again");

@@ -10,6 +10,7 @@
     <div class="title"><h1>Covid-19 Dashboard</h1></div>
     <h5>Data update on <span class="lastUpdate"></span></h5>
 
+    <!-- World Data -->
     <div class="container">
       <h3>World</h3>
       <div class="head-data">
@@ -22,16 +23,16 @@
       </div>
     </div>
 
-    <div class="container">
-      <h3>India</h3>
-      <div class="head-data">
-        <p>New Confirmed <span class="newConfirmedInd">0</span></p>
-        <p>Total Confirmed <span class="totalConfirmedInd">0</span></p>
-        <p>New Deaths <span class="newDeathsInd">0</span></p>
-        <p>Total Deaths <span class="totalDeathsInd">0</span></p>
-        <p>New Recovered <span class="newRecoveredInd">0</span></p>
-        <p>Total Recovered <span class="totalRecoveredInd">0</span></p>
-      </div>
+    <!-- Search Data -->
+    <div class="search">
+      <input type="text" placeholder="Country Name" class="ipt" />
+      <button class="btn-1">Search</button>
+    </div>
+
+    <!--Country Data  -->
+    <h3 class="chg">All Countries Data</h3>
+    <div class="table">
+      <div class="all-cont"></div>
     </div>
     <button class="btn">Refresh Data</button>
 
