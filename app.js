@@ -4,6 +4,7 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 //routes
 const projectRouter = require("./routes/projectRouter");
 const contactRouter = require("./routes/contactRouter");
@@ -15,6 +16,7 @@ const globalErrorHandler = require("./controller/errorController");
 //controller
 const viewsController = require("./controller/viewsController");
 const authController = require("./controller/authController");
+const youtubeDownloader = require("./controller/youtubeDownloader");
 //security headers
 const helmet = require("helmet");
 
@@ -32,6 +34,7 @@ app.set("views", [
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 app.use(express.static(path.join(__dirname, "/public")));
 
 //UI
@@ -49,6 +52,9 @@ app.get("/error", (req, res) => {
 });
 //ADMIN UI
 app.use("/admin", authController.protect, adminRouter);
+
+//YouTube Downloader
+app.get("/downloadYou", youtubeDownloader);
 
 //API
 app.use("/api/v1/projects", projectRouter);
