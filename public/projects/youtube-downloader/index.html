@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouTube Downloader</title>
     <link rel="stylesheet" href="./style.css" />
+    <title>Youtube Downloader</title>
   </head>
+
   <body>
     <h1 class="heading">Paste YouTube URL</h1>
     <input
       class="URL-input"
       placeholder="https://www.youtube.com/watch?v=MtN1YnoL46Q"
     />
-    <button class="convert-button">Convert</button>
+    <select class="opt" name="" id="">
+      <option value="mp3">mp3</option>
+      <option value="mp4">mp4</option>
+    </select>
 
+    <button class="convert-button" id="mp4">Convert</button>
     <script src="./script.js"></script>
   </body>
 </html>

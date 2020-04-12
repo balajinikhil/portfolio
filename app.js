@@ -54,7 +54,8 @@ app.get("/error", (req, res) => {
 app.use("/admin", authController.protect, adminRouter);
 
 //YouTube Downloader
-app.get("/downloadYou", youtubeDownloader);
+app.get("/downloadYoump4", youtubeDownloader.mp4);
+app.get("/downloadYoump3", youtubeDownloader.mp3);
 
 //API
 app.use("/api/v1/projects", projectRouter);

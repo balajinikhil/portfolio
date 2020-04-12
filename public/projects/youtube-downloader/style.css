@@ -1,18 +1,25 @@
 * {
-  box-sizing: border-box;
   text-align: center;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto;
 }
 
 .heading {
   font-family: Arial;
   margin-top: 40vh;
 }
+
 .URL-input,
 .convert-button {
   font-size: 1.3em;
   padding: 5px 10px;
 }
+
 .URL-input {
+  margin: auto;
   border-radius: 4px 0px 0px 4px;
   width: 30em;
   text-align: left;
@@ -20,14 +27,27 @@
   background: #eeeeee;
   outline: none;
 }
+
 .URL-input:focus {
   border: 2px solid #0485ff;
 }
+
 .convert-button {
-  border-radius: 0px 4px 4px 0px;
+  margin: 2% auto;
   border: 2px solid #0485ff;
   background: #0485ff;
   color: white;
+  transition: 0.15s;
+}
+
+.convert-button:hover {
+  background: #016acc;
+  border-color: #016acc;
+}
+
+#mp3 {
+  margin: 2% auto;
+  border-radius: 0px 4px 4px 0px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -50,4 +70,11 @@ body {
   color: snow;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("./bcg.jpg");
+}
+
+.opt {
+  width: 30vw;
+  margin: 5% auto;
+  padding: 4px;
+  border-radius: 7%;
 }
