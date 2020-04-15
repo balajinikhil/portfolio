@@ -5,7 +5,7 @@ const User = require("./../model/userModel");
 
 exports.dashboard = catchAsync(async (req, res, next) => {
   res.status(200).render("dashboard", {
-    title: "Dashboard"
+    title: "Dashboard",
   });
 });
 
@@ -14,7 +14,7 @@ exports.listProjects = catchAsync(async (req, res, next) => {
 
   res.status(200).render("dashboardProject", {
     title: "project list",
-    projects
+    projects,
   });
 });
 
@@ -23,22 +23,22 @@ exports.listContact = catchAsync(async (req, res, next) => {
 
   res.status(200).render("dashboardContact", {
     title: "Contact",
-    contacts
+    contacts,
   });
 });
 
-exports.listUsers = catchAsync(async (req, res, nextt) => {
+exports.listUsers = catchAsync(async (req, res, next) => {
   const users = await User.find();
 
   res.status(200).render("dashboardUser", {
     title: "Users list",
-    users
+    users,
   });
 });
 
 exports.addNewProject = catchAsync(async (req, res, next) => {
   res.status(200).render("newProject", {
-    title: "create project"
+    title: "create project",
   });
 });
 
@@ -48,7 +48,7 @@ exports.createNew = catchAsync(async (req, res, next) => {
   bodyData.tags = bodyData.tags.split(",").map((ele, i) => {
     return {
       name: ele,
-      class: classes[i]
+      class: classes[i],
     };
   });
   const project = await Project.create(bodyData);
@@ -61,7 +61,7 @@ exports.editProjects = catchAsync(async (req, res, next) => {
 
   res.status(200).render("updateProject", {
     title: "edit project",
-    project
+    project,
   });
 });
 

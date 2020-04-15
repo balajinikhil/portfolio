@@ -4,64 +4,64 @@ const slugify = require("slugify");
 const projectSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   slug: {
     type: String,
-    unique: true
+    unique: true,
   },
   tags: [
     {
       name: String,
-      class: String
-    }
+      class: String,
+    },
   ],
   description: String,
   image: String,
   githubUrl: {
     type: String,
-    trim: true
+    trim: true,
   },
   imageSliders: [String],
   relatedProjects: [
     {
       name: String,
-      link: String
-    }
+      link: String,
+    },
   ],
   createdOn: {
     type: Date,
-    default: Date.now()
+    default: Date.now(),
   },
   updatedOn: {
     type: Date,
-    default: Date.now()
+    default: Date.now(),
   },
 
   status: {
     type: String,
     default: "active",
-    enum: ["active", "inactive"]
+    enum: ["active", "inactive"],
   },
   image: {
-    type: String
-  }
+    type: String,
+  },
 });
 
-projectSchema.pre("save", function(next) {
+projectSchema.pre("save", function (next) {
   this.slug = slugify(this.name, {
-    lower: true
+    lower: true,
   });
   this.image = slugify(this.name, {
-    lower: true
+    lower: true,
   });
 
   next();
 });
 
-projectSchema.pre("save", function(next) {
+projectSchema.pre("save", function (next) {
   this.slug = slugify(this.name, {
-    lower: true
+    lower: true,
   });
   next();
 });

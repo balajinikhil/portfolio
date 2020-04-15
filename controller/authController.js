@@ -4,14 +4,13 @@ const catchAsyn = require("./../utils/catchAsyn");
 const AppError = require("./../utils/appError");
 const User = require("./../model/userModel");
 
-const createJWT = id => {
+const createJWT = (id) => {
   return jwt.sign({ id: id }, process.env.JWT_SCERET, {
-    expiresIn: "90d"
+    expiresIn: "90d",
   });
 };
 
 exports.signIn = catchAsyn(async (req, res, next) => {
-  console.log(req.body);
   if (!req.body.email || !req.body.password) {
     return next(new AppError("Please enter email and password", 400));
   }
@@ -26,7 +25,7 @@ exports.signIn = catchAsyn(async (req, res, next) => {
 
   const cookieOptions = {
     expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
-    httpOnly: true
+    httpOnly: true,
   };
 
   const token = await createJWT(user._id);
@@ -35,20 +34,19 @@ exports.signIn = catchAsyn(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     data: {
-      user
+      user,
     },
-    token
+    token,
   });
 });
 
 exports.signUp = catchAsyn(async (req, res, next) => {
-  console.log("signup", req.body);
   const newUser = await User.create(req.body);
   console.log("hello", newUser);
 
   res.status(200).json({
     status: "success",
-    newUser
+    newUser,
   });
 });
 

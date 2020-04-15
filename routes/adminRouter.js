@@ -1,5 +1,6 @@
 const Router = require("express").Router();
 const adminController = require("./../controller/adminController");
+const viewsController = require("./../controller/viewsController");
 
 Router.get("/", adminController.dashboard);
 
@@ -19,4 +20,5 @@ Router.route("/edit/:slug")
 
 Router.get("/delete/:slug", adminController.deleteProject);
 
+Router.get("/requests", viewsController.totalRequest);
 module.exports = Router;
