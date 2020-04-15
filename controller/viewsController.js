@@ -1,10 +1,10 @@
 const catchAsync = require("./../utils/catchAsyn");
 const Projects = require("./../model/projectModel");
-
 let ac = 0;
 let pc = 0;
 let rc = 0;
 let cc = 0;
+
 exports.projects = catchAsync(async (req, res, next) => {
   const projects = await Projects.find().sort("-createdOn");
   pc++;
