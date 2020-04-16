@@ -46,6 +46,10 @@ const projectSchema = new mongoose.Schema({
   image: {
     type: String,
   },
+  views: {
+    type: Number,
+    default: 0,
+  },
 });
 
 projectSchema.pre("save", function (next) {

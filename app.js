@@ -5,6 +5,9 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const rateLimit = require("express-rate-limit");
+const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
 //routes
 const projectRouter = require("./routes/projectRouter");
 const contactRouter = require("./routes/contactRouter");
@@ -27,16 +30,34 @@ app.set("views", [
   path.join(__dirname, "/views/admin"),
 ]);
 
-//GLOBAL MIDDELWARE
-// app.use(helmet()); https://balaji-pofo.herokuapp.com/
+//GLOBAL MIDDELWARE  https://balaji-pofo.herokuapp.com/
+// cors
+app.use(cors());
 
-// if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
+// static files
+app.use(express.static(path.join(__dirname, "/public")));
+
+// security HTTP headers
+app.use(helmet());
+
+// limit requests from same IP
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: "Too many requests from this IP, please try again in an hour!",
+});
+app.use("/", limiter);
+
+//body data
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors());
-app.use(express.static(path.join(__dirname, "/public")));
 
+// data-sanitization, code-injection
+app.use(mongoSanitize());
+app.use(xss());
+
+if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 //UI
 app.get("/", viewsController.aboutMe);
 app.get("/about", viewsController.aboutMe);

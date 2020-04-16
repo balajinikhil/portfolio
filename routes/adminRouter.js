@@ -19,6 +19,4 @@ Router.route("/edit/:slug")
   .post(adminController.updateProject);
 
 Router.get("/delete/:slug", adminController.deleteProject);
-
-Router.get("/requests", viewsController.totalRequest);
 module.exports = Router;
