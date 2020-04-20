@@ -3,20 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Pass The Message</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Decission Maker</title>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="container">
-      <h2>A message you would like to send</h2>
-      <input type="text" class="inpt" />
-      <br />
-      <button type="submit" id="btn">Press To Send</button>
-      <h3>Last Message delivered</h3>
-      <h4 id="opt"></h4>
+    <div class="start">
+      <h3 class="head">Having Trouble Deciding Between The Two ??</h3>
+      <h4>Let Me Help</h4>
+      <button type="button" class="btn">Start</button>
     </div>
+    <form class="option">
+        <h4>Enter first choice </h4>
+        <input type='text' class="frst" name='first' required> 
+        <h4>Enter second choice </h4>
+        <input type='text' class="scnd" name='second' required>
+        <button type="submit" class="btn2">Done</button>
+    </form>
+    <div class="tbl">
+        <div class="opt1"><h3 class="opt1head">PlaceHolder1</h3>
+        <div class="procon">
 
+        <ul class="pros1">
+            <li class="lip">Pros</li>
+        </ul>
+
+        <ul class="cons1">
+            <li class="lic">Cons</li>
+        </ul>
+
+        </div>
+
+        <form class="procon frm1">
+       <input type="text" placeholder="enter pros" name='pros1ipt'> 
+       <input type="text" placeholder="enter cons" name='cons1ipt'>
+       <button class="add" type="submit">Add</button>
+        </form>
+        </div>
+
+        <div class="opt2">
+            <h3 class="opt2head">PlaceHolder2</h3>
+            <div class="procon">
+                <ul class="pros2">
+                    <li class="lip">Pros</li>
+                </ul>
+                <ul class="cons2">
+                    <li class="lic">Cons</li>
+                </ul>
+            </div>
+            <form class="procon frm2">
+                <input type="text" placeholder="enter pros" name='pros2ipt'>
+                
+                <input type="text" placeholder="enter cons" name='cons2ipt'>
+                <button class="add" type="submit">Add</button>
+            </form>
+        </div>
+      
+        <button type="button" class="calc">Calculate</button>
+
+    </div>
+    <div class="calculated">
+        <h2>After Analyzing....!!! </h2>
+        <p class="rslt">Result</p>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
