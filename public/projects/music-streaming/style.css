@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin: 10% 0;
+  height: 90vh;
+  background: url("https://media.giphy.com/media/Xd7QqFPv4IVAz8dnog/giphy.gif");
+  align-items: center;
+}
+
+.con {
+  padding: 150px;
+  background: white;
+  opacity: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  border: 0.1em solid rgb(0, 0, 0);
+}
+
+button {
+  margin: 7% 0;
+  display: inline-block;
+  padding: 0.45em 2.2em;
+  border: 0.1em solid #000;
+  box-shadow: 5px 10px #888888;
+
+  border-radius: 0.12em;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: transparent;
+}
+
+@media only screen and (max-width: 600px) {
+  .con {
+    padding: 25px;
+  }
+}
+
+.ad {
+  margin: 7% 0;
+  border: 0.1em solid #000;
+}
+
+.title {
+  color: white;
+}
+
+.ad {
+  display: flex;
+  flex-direction: column;
+}

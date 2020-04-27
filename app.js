@@ -20,6 +20,7 @@ const globalErrorHandler = require("./controller/errorController");
 const viewsController = require("./controller/viewsController");
 const authController = require("./controller/authController");
 const youtubeDownloader = require("./controller/youtubeDownloader");
+const musicStreaming = require("./controller/musicStreaming");
 //security headers
 const helmet = require("helmet");
 
@@ -77,6 +78,10 @@ app.use("/admin", authController.protect, adminRouter);
 //YouTube Downloader
 app.get("/downloadYoump4", youtubeDownloader.mp4);
 app.get("/downloadYoump3", youtubeDownloader.mp3);
+
+// Music Streaming
+app.get("/music/search/:str", musicStreaming.search);
+app.get("/music/audio/:urls", musicStreaming.play);
 
 //API
 app.use("/api/v1/projects", projectRouter);
