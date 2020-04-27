@@ -13,7 +13,7 @@ btn.addEventListener("click", async (e) => {
     console.log(db);
 
     let arr = db.data.items;
-    if (arr.length > 0) {
+    if (arr.length > 0 && arr[0].title) {
       arr.forEach((e) => {
         let path = e.link.split("=")[1];
 
