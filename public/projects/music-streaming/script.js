@@ -12,8 +12,8 @@ btn.addEventListener("click", async (e) => {
     let db = await d.json();
     console.log(db);
 
-    if (db.data.items.length > 1) {
-      let arr = db.data.items;
+    let arr = db.data.items;
+    if (arr.length > 0) {
       arr.forEach((e) => {
         let path = e.link.split("=")[1];
 
