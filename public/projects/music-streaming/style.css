@@ -61,11 +61,11 @@ button {
   border: 0.1em solid #000;
 }
 
-.title {
-  color: white;
-}
-
 .ad {
   display: flex;
   flex-direction: column;
+}
+
+h1 {
+  background-color: tomato;
 }
