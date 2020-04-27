@@ -10,12 +10,14 @@ btn.addEventListener("click", async (e) => {
 
     let d = await fetch(`/music/search/${ipt.value}`);
     let db = await d.json();
+    console.log(db);
 
-    let arr = db.data.items;
-    arr.forEach((e) => {
-      let path = e.link.split("=")[1];
+    if (db.data.items.length > 1) {
+      let arr = db.data.items;
+      arr.forEach((e) => {
+        let path = e.link.split("=")[1];
 
-      desc.innerHTML += `
+        desc.innerHTML += `
     <div class='ad'>
     ${e.title}
     <audio controls>
@@ -23,7 +25,10 @@ btn.addEventListener("click", async (e) => {
       Your browser does not support the audio tag.
     </audio>
     </div>`;
-    });
+      });
+    } else {
+      desc.innerHTML = `<h3>Search failed</h3>`;
+    }
   } catch (err) {
     desc.innerHTML = `<h3>Search failed</h3>`;
   }
