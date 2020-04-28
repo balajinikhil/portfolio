@@ -4,7 +4,7 @@ const ytsr = require("ytsr");
 const catchAsyn = require("./../utils/catchAsyn");
 exports.search = async (req, res, next) => {
   try {
-    ytsr(req.params.str, { limit: 1 }, (err, data) => {
+    ytsr(req.params.str, { limit: 2 }, (err, data) => {
       if (err) {
         res.status(400).json({
           status: "fail",
