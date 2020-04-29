@@ -23,6 +23,7 @@ exports.search = async (req, res, next) => {
 };
 
 exports.play = catchAsyn(async (req, res, next) => {
+if(req.params.urls){
   try {
     let url = `https://www.youtube.com/watch?v=` + req.params.urls;
     res.header({
@@ -35,4 +36,7 @@ exports.play = catchAsyn(async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+}else{
+return
+}
 });
