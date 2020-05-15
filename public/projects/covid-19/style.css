@@ -1,13 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap");
+
 * {
   box-sizing: border-box;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 body {
   letter-spacing: 0.01rem;
   margin: 0 7%;
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
+  background-image: url("https://media.giphy.com/media/dsjDkbQW5M1n4WvDqM/giphy.gif");
+  opacity: 90%;
 }
 .title {
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,4 +135,9 @@ h5 {
   .head-data {
     grid-template-columns: auto;
   }
+}
+
+.chg {
+  color: white;
+  background: tomato;
 }

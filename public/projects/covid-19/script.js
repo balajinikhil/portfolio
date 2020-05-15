@@ -54,12 +54,13 @@ const updateData = (ind, wrld, dateUp, allCon) => {
 
   searchBtn.addEventListener("click", () => {
     chg.innerHTML = `Search Result`;
+
     const val = ipt.value.trim().toLowerCase();
 
     let found = false;
 
     for (let i = 0; i < allCon.length; i++) {
-      if (val == allCon[i].Country.trim().toLowerCase()) {
+      if (allCon[i].Country.trim().toLowerCase().includes(val)) {
         found = true;
         let e = allCon[i];
         allCountries.innerHTML = ` <h3>${e.Country}</h3>
@@ -96,7 +97,7 @@ const getData = async () => {
   try {
     const dt = await fetch("https://api.covid19api.com/summary");
     const data = await dt.json();
-    // console.log(data);
+    console.log(data);
 
     // const c = await fetch(
     //   "https://api.covid19api.com/live/country/india/status/confirmed"
