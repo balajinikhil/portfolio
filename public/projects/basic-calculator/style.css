@@ -1,66 +1,100 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.calculator {
-  min-height: 100%;
-  width: 50%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  border: 2px solid black;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background:  whitesmoke;
+    
+  }
+  body{
+    background: #09b0a2;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .calculator {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: 2px solid black;
+    margin: 10%;
+    background-color: whitesmoke;
+  }
+  
+  .screen {
+    width: 100%;
+    display: block;
+    border: 2px solid black;
+    background: #FFFFFF;
+    font-size: 50px;
+    color: black;
+    padding: 2rem;
+  }
+  
+  .btn {
+    width: 20%;
+    height: 10%;
+    display: inline-block;
+    padding: 2rem 0;
+    margin: 1%;
+  }
+  
+  .yellow-btn {
+    background: #669999
+    ;
+    width: 20%;
+    height: 10%;
+    display: inline-block;
+    padding: 2rem 0;
+    border-radius: 2px;
+    flex: wrap;
+    flex-grow: 1;
+    margin: 1%;
+  }
+  
+  .grey-btn {
+    background: #669999;
+  }
+  .equal {
+    width: 30%;
+    height: 10%;
+    display: inline-block;
+    padding: 2rem 0;
+    border-radius: 2px;
+    flex: wrap;
+    background: #669999;
+    flex-grow: 1;
+    margin: 1%;
+  }
+  .clear {
+    width: 60%;
+    height: 25%;
+    display: inline-block;
+    padding: 2rem 0;
+    border-radius: 2px;
+    flex: wrap;
+    background: #669999;
+    flex-grow: 1;
+    margin: 1%;
+  }
+  #me{
+    width: 42%;
+  }
+  .grey-btn:hover,
+  .clear:hover,
+  .yellow-btn:hover,
+  .equal:hover{
+    background-color: whitesmoke;
+    }
+  
+    @media screen and (max-width:768px){
 
-.screen {
-  width: 100%;
-  display: block;
-  border: none;
-  background: rgb(41, 41, 51);
-  font-size: 50px;
-  color: whitesmoke;
-  padding: 2rem;
-}
+ 
 
-.btn {
-  width: 20%;
-  display: inline-block;
-  padding: 2rem 0;
-  margin: 0;
-}
 
-.yellow-btn {
-  background: rgb(241, 238, 34);
-}
+    }
+    
 
-.grey-btn {
-  background: lightgray;
-}
-
-.equal {
-  width: 20vw;
-  height: 10vh;
-  display: inline-block;
-  padding: 2rem 0;
-  border-radius: 2px;
-  flex: wrap;
-  background: lime;
-  flex-grow: 1;
-}
-.clear {
-  width: 20vw;
-  height: 10vh;
-  display: inline-block;
-  padding: 2rem 0;
-  border-radius: 2px;
-  flex: wrap;
-  background: red;
-  flex-grow: 1;
-}

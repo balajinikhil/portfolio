@@ -22,3 +22,4 @@ equal.addEventListener("click", function() {
 clear.addEventListener("click", () => {
   screen.value = "";
 });
+
