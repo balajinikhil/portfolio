@@ -1,6 +1,7 @@
 const ytdl = require("ytdl-core");
+const cA = require("./../utils/catchAsyn");
 
-exports.mp4 = async (req, res, next) => {
+exports.mp4 = cA(async (req, res, next) => {
   try {
     let URL = req.query.url;
     let title = "";
@@ -15,9 +16,9 @@ exports.mp4 = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-};
+});
 
-exports.mp3 = async (req, res, next) => {
+exports.mp3 = cA(async (req, res, next) => {
   try {
     var url = req.query.url;
     let title = "";
@@ -32,4 +33,4 @@ exports.mp3 = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-};
+});
